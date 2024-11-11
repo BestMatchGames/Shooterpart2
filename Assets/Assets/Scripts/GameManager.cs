@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject enemyOne;
     public GameObject cloud;
+    public GameObject coin;
 
     public TextMeshProUGUI scoreText;
 
@@ -28,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void CreateEnemyOne()
@@ -42,6 +41,11 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(cloud, transform.position, Quaternion.identity);
         }
+    }
+
+    void CreateCoin()
+    {
+        Instantiate(coin, new Vector3(Random.Range(-9f, 9f), 7.5f, 0), Quaternion.Euler(0, 0, 180));
     }
 
     public void EarnScore(int newScore)

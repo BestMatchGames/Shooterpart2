@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MovingObject : MonoBehaviour
 {
-
     public int whatAmI;
 
     // Start is called before the first frame update
@@ -16,15 +15,17 @@ public class MovingObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (whatAmI == 1) 
+        if (whatAmI == 1)
         {
             //I am the Bullet
             transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * 8f);
-        } else if (whatAmI == 2)
+        }
+        else if (whatAmI == 2)
         {
             //I am the EnemyOne
             transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * 4f);
-        } else if (whatAmI == 3)
+        }
+        else if (whatAmI == 3)
         {
             //I am the Cloud
             transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * Random.Range(3f, 6f));
@@ -38,6 +39,12 @@ public class MovingObject : MonoBehaviour
         if (transform.position.y <= -9f && whatAmI == 3)
         {
             transform.position = new Vector3(Random.Range(-12f, 12f), 9f, 0);
+        }
+
+        else if (whatAmI == 4)
+        {
+            //I am the Coin
+            transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * 7f);
         }
     }
 }
